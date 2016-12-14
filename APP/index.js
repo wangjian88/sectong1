@@ -46,13 +46,16 @@ class News extends Component{
     }
 
      _render(row){
+     	let oyear = new Date(parseInt(row.datetime)).getFullYear();
+     	let omon = new Date(parseInt(row.datetime)).getMonth();
+     	let oday = new Date(parseInt(row.datetime)).getDate();
     	return(
 	    	<TouchableOpacity style={{flexDirection:'row',backgroundColor:'white',borderColor:'#ccc',borderBottomWidth:1,padding:15,alignItems:'center',justifyContent:'space-between',flex:1}}>
 	    		<View style={{flexDirection:'row'}}>
 	    			<Image source={require('./images/news_bg.png')} style={{width:70,height:65}}/>
 	    			<View style={{marginLeft:10}}>
 	    				<Text style={{fontSize:24,lineHeight:36}}>{row.content}</Text>
-	    				<Text style={{fontSize:16,color:'gray',marginTop:5}}>{new Date(parseInt(row.datetime)).toLocaleString()}</Text>
+	    				<Text style={{fontSize:16,color:'gray',marginTop:5}}>{oyear+"年"+omon+"月"+oday+"日"}</Text>
 	    			</View>
 	    		</View>
 	    		<Image source={require('./images/right.png')}/>
